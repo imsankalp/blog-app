@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    
+    <title>Blog-App</title>
+</head>
+<body>
+    <nav class="navbar navbar-light" style="background-color: #41b0bf;">
+        <div class="container-fluid">
+            <ul class="nav justify-content-center">
+                <li class="nav-item">
+                    <a class="navbar-brand" href="/blogs"><span style="color: aliceblue; text-align: center;"> Home</span></a>
+                </li>
+                <li class="nav-item">
+                  <a class="navbar-brand" href="#"><span style="color: aliceblue; text-align: center;">Add New Blog</span></a>
+                </li>
+          </div>
+      </nav>    
+      <br>
+    <form class="row g-3 mx-5" action="/blogs" method="POST">
+        <div class="col-md-6">
+          <label for="inputEmail4" class="form-label">Author Name: </label>
+          <input type="text" class="form-control" id="inputEmail4" name="author">
+        </div>
+
+        <div class="col-12">
+          <label for="inputAddress" class="form-label">Title:</label>
+          <input type="text" class="form-control" id="inputAddress" name="title" placeholder="Enter Blog title">
+        </div>
+        <div class="col-12">
+          <label for="inputAddress2" class="form-label">Image Url:</label>
+          <input type="text" class="form-control" id="inputAddress2" name="img" placeholder="http://">
+        </div>
+        <div class="mb-3">
+            <label  class="form-label">Write your Blog:</label>
+            <textarea class="form-control "  name="content" placeholder="Enter Content" required></textarea>
+            </div>
+        <div class="col-12">
+          <button type="submit" class="btn btn-primary">Post Blog   </button>
+        </div>
+      </form>
+
+
+
+
+
+
+
+</body>
+</html>
