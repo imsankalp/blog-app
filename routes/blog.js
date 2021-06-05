@@ -7,7 +7,9 @@ const Blog = require('../models/blog');
 //Getting all blogs
 router.get('/blogs', async(req, res) => {
 
-    const blogs = await Blog.find({});
+    const blogs = await Blog.find().sort({
+        date: 'desc'
+    });
     res.render('index', {blogs});
 })
 
@@ -23,10 +25,9 @@ router.post('/blogs', async (req, res) =>{
 
 
 //Show blogs
-router.get('/blogs/:id', async (req, res) => {
+router.get('/blogs/:slug', async (req, res) => {
 
-    const blog = await Blog.findById(req.params.id);
-
+    const blog = await Blog.findOne({slug: req.params.slug});
     res.render('show', {blog});
 })
 

@@ -4,12 +4,21 @@
       <br>
       <div class="card mb-4">
         <img src="<%= blog.img %>" class="card-img" alt="...">
-        <div class="card-body m-5">
+        <div class="card-body m-2">
           <h1 class="card-title"><%= blog.title%></h1>
           <h4 class="text-muted">By <%= blog.author%></h4>
-          <p class="card-text"><%= blog.content%></p>
+          <div class="blog-content">
+            <p class="card-text"><%= blog.content%></p>
+          </div>
           <p class="card-text"><small class="text-muted"><%= blog.date.toString().substring(0,16) %></small></p>
         </div>
+      </div>
+      <div class="container mb-4" >
+        <h5 class="display-5">Comments: </h5>
+        <form action="">
+          <textarea name="comment" id="comment" cols="60" rows="2"></textarea>
+          <button class="btn btn-danger">Add Comment</button>
+        </form>
       </div>
 
 

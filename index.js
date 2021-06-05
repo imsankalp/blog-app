@@ -20,7 +20,8 @@ mongoose.connect('mongodb://localhost/blogApp',
     {
         useNewUrlParser: true, 
         useUnifiedTopology: true,
-        useFindAndModify: false
+        useFindAndModify: false,
+        useCreateIndex: true,
     })
 .then(() => {
     console.log("DB connected!");
