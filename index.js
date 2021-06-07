@@ -5,9 +5,10 @@ const path = require('path');
 const methodOverride = require('method-override');
 //const seedDB = require('./seed');
 const Blog = require('./models/blog');
+
+const Review = require('./models/review');
+
 const blogRoutes = require('./routes/blog');
-
-
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname,'/views'));

@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const slugify = require('slugify');
+const Review = require('./review');
 
 
 //Making Schema
@@ -28,7 +29,13 @@ const blogSchema = new mongoose.Schema({
         type: String,
         required: true,
         unique: true
-    }
+    },
+    reviews: [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'Review'
+        }
+    ]
 })
 
 //validating the value of slug, each time a new blog is created, with tite of the blog.

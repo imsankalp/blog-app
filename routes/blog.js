@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Blog = require('../models/blog');
+const Review = require('../models/review');
 
 
 
@@ -27,10 +28,29 @@ router.post('/blogs', async (req, res) =>{
 //Show blogs
 router.get('/blogs/:slug', async (req, res) => {
 
-    const blog = await Blog.findOne({slug: req.params.slug});
+    const blog = await Blog.findOne({slug: req.params.slug}).populate('reviews');
     res.render('show', {blog});
 })
 
+//Deleting a BLOG
+router.delete('/blogs/:slug', async (req, res) =>{
 
+    await Blog.findOneAndDelete({slug: req.params.slug});
+    res.redirect('/blogs');
+})
+
+//Creating a new commment
+router.post('/blogs/:slug/review', async (req, res) => {
+        const blog = await Blog.findOne({slug: req.params.slug});
+        const review = new Review(req.body);
+
+        blog.reviews.push(review);
+
+        await review.save();
+        await blog.save();
+
+        res.redirect(`/blogs/${req.params.slug}`);
+  
+})
 
 module.exports = router;
