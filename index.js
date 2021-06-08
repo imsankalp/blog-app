@@ -5,10 +5,13 @@ const path = require('path');
 const methodOverride = require('method-override');
 //const seedDB = require('./seed');
 const Blog = require('./models/blog');
+const dotenv = require('dotenv');
+dotenv.config();
 
 const Review = require('./models/review');
 
 const blogRoutes = require('./routes/blog');
+
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname,'/views'));
@@ -17,7 +20,7 @@ app.use(express.urlencoded({extended: true}));
 app.use(methodOverride('_method'));
 
 //Connecting Mongoose
-mongoose.connect('mongodb://localhost/blogApp',
+mongoose.connect(process.env.MONGO_URL,
     {
         useNewUrlParser: true, 
         useUnifiedTopology: true,
