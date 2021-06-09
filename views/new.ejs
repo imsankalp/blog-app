@@ -4,7 +4,7 @@
       <br>
   <div class="container" style="height: 100vh;">
 
-    <form class="row g-3 mx-5" action="/blogs" method="POST">
+    <form class="row g-3 mx-5" action="/blogs" method="POST" enctype='multipart/form-data'>
         <div class="col-md-6">
           <label for="inputEmail4" class="form-label">Author Name: </label>
           <input type="text" class="form-control" id="inputEmail4" name="author">
@@ -15,6 +15,10 @@
           <input type="text" class="form-control" id="inputAddress" name="title" placeholder="Enter Blog title">
         </div>
         <div class="col-12">
+          <label for="exampleFormControlFile1">Upload Image</label>
+          <input type="file" class="form-control-file" id="image" name="image">
+        </div>
+        <div class="col-12">
           <label for="inputAddress2" class="form-label">Image Url:</label>
           <input type="text" class="form-control" id="inputAddress2" name="img" placeholder="http://">
         </div>
@@ -23,7 +27,7 @@
             <textarea class="form-control "  name="content" placeholder="Enter Content" required></textarea>
             </div>
         <div class="col-12">
-          <button type="submit" class="btn btn-primary">Post Blog   </button>
+          <button type="submit" class="btn btn-primary">Post Blog  </button>
         </div>
       </form>
     </div>

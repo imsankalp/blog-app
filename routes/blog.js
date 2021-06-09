@@ -2,7 +2,8 @@ const express = require('express');
 const router = express.Router();
 const Blog = require('../models/blog');
 const Review = require('../models/review');
-
+const cloudinary = require('../util/cloudinary');
+const upload = require('../util/multer');
 
 
 //Getting all blogs
@@ -16,12 +17,23 @@ router.get('/blogs', async(req, res) => {
 
 //Add new blogs
 router.get('/blogs/new', (req, res) =>{
+
     res.render('new');
 })
-router.post('/blogs', async (req, res) =>{
 
-   await Blog.create(req.body);
-   res.redirect('/blogs');
+router.post('/blogs',upload.single('image'), async (req, res) =>{
+    try{
+        // console.log(req.image);
+        const pic = await cloudinary.uploader.upload(req.file.path);
+        console.log(pic);
+        // console.log(res.json(result));
+        // await Blog.create(req.body);
+        // res.redirect('/blogs');
+    }
+    catch(e){
+        console.log(e);
+    }
+    
 })
 
 

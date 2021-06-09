@@ -30,6 +30,9 @@ const blogSchema = new mongoose.Schema({
         required: true,
         unique: true
     },
+    cloudinary_id:{
+        type: String,
+    },
     reviews: [
         {
             type: mongoose.Schema.Types.ObjectId,
