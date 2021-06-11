@@ -24,11 +24,17 @@ router.get('/blogs/new', (req, res) =>{
 router.post('/blogs',upload.single('image'), async (req, res) =>{
     try{
         // console.log(req.image);
-        const pic = await cloudinary.uploader.upload(req.file.path);
-        console.log(pic);
-        // console.log(res.json(result));
-        // await Blog.create(req.body);
-        // res.redirect('/blogs');
+        const result = await cloudinary.uploader.upload(req.file.path);
+       
+        const blog = new Blog({
+            author: req.body.author,
+            title: req.body.title,
+            img: result.secure_url,
+            content: req.body.content,
+            cloudinary_id: result.public_id,
+        });
+        await blog.save();
+        res.redirect('/blogs');
     }
     catch(e){
         console.log(e);
