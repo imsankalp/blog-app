@@ -1,2 +1,7 @@
 # blog-app
-## Made using Node.js, Express, MongoDB and EJS
+## Tech stack;
+- HTML/CSS
+- Node.js
+- Express.js
+- Ejs (Templating Engine)
+- Mongo DB
